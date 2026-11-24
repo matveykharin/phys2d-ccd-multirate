@@ -1,0 +1,23 @@
+# phys_bench output used in the report (Linux, g++ 13, Release, 2 vCPU). Absolute times depend on the machine.
+=== 1. Minimal experiment: projectile 2000 px/s, wall 10 px, r=5 px (d+2r = 20 px)
+  Discrete 60 Hz             step= 33.33 px  TUNNEL       ms/step=0.00013  steps/frame= 1  ms/frame=0.00013
+  Discrete 120 Hz            step= 16.67 px  BOUNCE       ms/step=0.00013  steps/frame= 2  ms/frame=0.00026
+  Discrete 240 Hz            step=  8.33 px  BOUNCE       ms/step=0.00010  steps/frame= 4  ms/frame=0.00039
+  CCD 60 Hz                  step= 33.33 px  BOUNCE       ms/step=0.00013  steps/frame= 1  ms/frame=0.00013
+  Multi-rate 60 Hz x4        step= 33.33 px  BOUNCE       ms/step=0.00043  steps/frame= 4  ms/frame=0.00043
+
+=== 2. Two lanes, Multi-rate (same projectile, 60 vs 240 Hz)
+  lane 60 Hz : TUNNEL
+  lane 240 Hz: BOUNCE
+
+=== 3. Arena (6 static, 50 normal, 8 fast), 30 s of simulation
+  Discrete 60 Hz           ms/frame=0.1627  steps(normal/fast)/frame=1/1  TOI/frame=0.00 (max 0, cap 0)  escaped=112  deterministic=yes
+  Discrete 240 Hz (all)    ms/frame=0.6505  steps(normal/fast)/frame=4/4  TOI/frame=0.00 (max 0, cap 0)  escaped=0  deterministic=yes
+  CCD 60 Hz                ms/frame=0.2000  steps(normal/fast)/frame=1/1  TOI/frame=0.55 (max 10, cap 0)  escaped=0  deterministic=yes
+  Multi-rate 60/60         ms/frame=0.1489  steps(normal/fast)/frame=1/1  TOI/frame=0.00 (max 0, cap 0)  escaped=118  deterministic=yes
+  Multi-rate 60/240        ms/frame=0.1639  steps(normal/fast)/frame=1/4  TOI/frame=0.00 (max 0, cap 0)  escaped=0  deterministic=yes
+
+=== 4. Stack (8-box tower, 15-box pyramid, 40 balls in a cup), 10 s
+  Discrete 60 Hz           ms/frame=0.2232  RMS v=4.800 px/s  max v=14.45 px/s  max pen=0.801 px  tower top shift=(0.00, 4.74)  TOI/frame=0.00 cap=0  deterministic=yes
+  CCD 60 Hz                ms/frame=0.2831  RMS v=4.514 px/s  max v=14.31 px/s  max pen=0.518 px  tower top shift=(0.00, 3.47)  TOI/frame=0.20 cap=0  deterministic=yes
+  Multi-rate 60/240        ms/frame=0.2250  RMS v=4.800 px/s  max v=14.45 px/s  max pen=0.801 px  tower top shift=(0.00, 4.74)  TOI/frame=0.00 cap=0  deterministic=yes
